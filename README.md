@@ -17,7 +17,7 @@ This is a simple Python implementation of a text-based slot machine. The game si
    Make sure you have Python installed (version 3.x).
 
    ```bash
-   python slot_machine.py
+   python main.py
    ```
 
 3. **Enjoy the Game!**
