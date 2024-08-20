@@ -1,0 +1,62 @@
+
+1. getslotmachinespin(rows, cols, symbols):
+    - Input: Number of rows, columns, and a dictionary of symbols with their counts.
+    - Create a list containing all symbols based on their count.
+    - Initialize an empty list for columns.
+    - For each column (total columns = cols):
+        - Create a temporary list for the current column.
+        - Create a copy of all symbols to pick from.
+        - For each row (total rows = rows):
+            - Randomly select a symbol from the list of available symbols.
+            - Remove the selected symbol from the copy of the list.
+            - Add the selected symbol to the current column list.
+        - Add the current column list to the columns list.
+    - Return the final list of columns.
+
+2. checkwinnings(columns, lines, bet, values):
+    - Input: The columns from the slot machine spin, number of lines to bet on, bet amount, and symbol values.
+    - Initialize variables for winnings and winning lines.
+    - For each line (from 0 to the number of lines):
+        - Check the symbol in the first column for the current line.
+        - For each column in the slot machine:
+            - Check if the symbol in the current line matches the one in the first column.
+            - If any symbol in the line does not match, stop checking that line.
+        - If all symbols match:
+            - Add the value of the symbol (multiplied by the bet) to the winnings.
+            - Record the winning line.
+    - Return the total winnings and the winning lines.
+
+3. printslotmachine(columns):
+    - Input: The list of columns generated from the slot machine spin.
+    - For each row (based on the first column's length):
+        - For each column:
+            - Print the symbol, followed by " | " if it's not the last column.
+        - Print a new line after each row.
+
+4. deposit():
+    - Continuously prompt the user to input a deposit amount until a valid number greater than 0 is entered.
+    - Return the validated deposit amount.
+
+5. getnumberoflines():
+    - Continuously prompt the user to input the number of lines they want to bet on (1 to MAX_LINES).
+    - Return the validated number of lines.
+
+6. getbet():
+    - Continuously prompt the user to input the bet amount for each line until a valid number within the range of MIN_BET and MAX_BET is entered.
+    - Return the validated bet amount.
+
+7. spin(balance):
+    - Call getnumberoflines() to determine the number of lines the user wants to bet on.
+    - Continuously prompt the user for the bet amount until the total bet (lines * bet) does not exceed the current balance.
+    - Generate the slot machine spin using getslotmachinespin().
+    - Display the result using printslotmachine().
+    - Calculate winnings using checkwinnings().
+    - Display the winnings and the winning lines.
+    - Return the net change in balance (winnings - total bet).
+
+8. main():
+    - Start by getting the user's deposit using deposit().
+    - Continuously run the game loop until the user decides to quit (by pressing 'q').
+    - Within the loop, display the current balance and prompt the user to spin or quit.
+    - Adjust the balance based on the result of the spin.
+    - Display the final balance when the user quits the game.
